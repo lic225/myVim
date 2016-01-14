@@ -60,7 +60,7 @@ call plug#end()
 set fileencodings=utf-8,gb18030,big5,euc-jp,latin1
 set encoding=utf-8
 language messages zh_TW.UTF-8
-set guifont=Monaco\ 16
+set guifont=Monaco\ for\ Powerline\ 16
 
 colorscheme molokai
 let g:molokai_original = 1
@@ -140,8 +140,7 @@ let g:rainbow_conf = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ycm_confirm_extra_conf=0
-let g:ycm_collect_identifiers_from_tags_files = 1
-set tags+=~/.vim/tagfiles
+"let g:ycm_collect_identifiers_from_tags_files = 1
 noremap <F5> :YcmForceCompileAndDiagnostics<CR>
 inoremap <F5> <ESC>:YcmForceCompileAndDiagnostics<CR>
 autocmd! BufWritePost * silent YcmForceCompileAndDiagnostics
@@ -226,7 +225,7 @@ vmap <C-Right> <ESC>:tabn<CR>
 func! Compile()
     exec "w"
     if &filetype == "cpp"
-        exec "!g++ -Wall -Wshadow -O2 -std=c++14 % -o %<"
+        exec "!g++ -Wall -Wshadow -O2 -std=c++14 -DAKAI % -o %<"
     elseif &filetype == "c"
         exec "!clang -Wall -Wshadow -O2 -std=c99 % -o %< 2>log.txt"
     elseif &filetype == "tex"
