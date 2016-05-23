@@ -28,7 +28,8 @@ Plug 'pangloss/vim-javascript'
 
 Plug 'luochen1990/rainbow'
 
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'mbbill/undotree'
 
@@ -139,11 +140,16 @@ let g:rainbow_conf = {
 " => YouCompleteMe {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ycm_confirm_extra_conf=0
+let g:ycm_confirm_extra_conf=1
 "let g:ycm_collect_identifiers_from_tags_files = 1
 noremap <F5> :YcmForceCompileAndDiagnostics<CR>
 inoremap <F5> <ESC>:YcmForceCompileAndDiagnostics<CR>
 autocmd! BufWritePost * silent YcmForceCompileAndDiagnostics
+let g:ycm_python_binary_path = '/home/c2251393/anaconda3/bin/python3'
+let g:ycm_global_ycm_extra_conf='~/ycm_extra_conf.py'
+if getcwd() =~ "linux"
+    let g:ycm_global_ycm_extra_conf='~/ycm_extra_conf_kernel.py'
+endif
 
 "}}}
 
